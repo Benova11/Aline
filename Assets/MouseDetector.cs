@@ -4,16 +4,15 @@ using UnityEngine;
 public class MouseDetector : MonoBehaviour
 {
   public float depth = 10.0f;
-  // Start is called before the first frame update
+
   void Start()
-    {
+  {
     Cursor.visible = false;
 
   }
 
-  // Update is called once per frame
   void Update()
-    {
+  {
     FollowMousePosition();
   }
 
