@@ -27,7 +27,7 @@ public class GarageSceneManager : MonoBehaviour
 
   void Awake()
   {
-    roomLight.intensity = 0.12f;
+    roomLight.intensity = 0.2f; //0.12
   }
 
   void Start()
@@ -77,7 +77,7 @@ public class GarageSceneManager : MonoBehaviour
     seq.append(0.11f);
     seq.append(LeanTween.value(roomLight.intensity, 0.25f, 0.05f).setOnUpdate(SetRoomLightIntensity));
     seq.append(0.11f);
-    seq.append(LeanTween.value(roomLight.intensity, 0.12f, 0.08f).setOnUpdate(SetRoomLightIntensity).setOnComplete(()=> { Invoke(nameof(StartTutorial),2); }));
+    seq.append(LeanTween.value(roomLight.intensity, 0.2f, 0.08f).setOnUpdate(SetRoomLightIntensity).setOnComplete(()=> { Invoke(nameof(StartTutorial),2); }));
   }
 
   void StartTutorial()
@@ -123,4 +123,15 @@ public class GarageSceneManager : MonoBehaviour
     LeanTween.moveY(garageDoor, target, openGarageDoorTime).setEaseOutBounce().setOnComplete(()=> { isGarageOpen = true; });
   }
 
+  public void OnMemoryFound(bool turnOffFlash = false)
+  {
+    canInteract = false;
+    flashLight.SetActive(turnOffFlash);
+  }
+
+  public void OnMemoryPlaced(bool turnOffFlash = true)
+  {
+    canInteract = true;
+    flashLight.SetActive(turnOffFlash);
+  }
 }

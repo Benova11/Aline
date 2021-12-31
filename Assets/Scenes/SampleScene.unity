@@ -179,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7ef8b8487c8694f578f59aa404acc807, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -537,6 +537,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &534826047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534826048}
+  m_Layer: 5
+  m_Name: CenterPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &534826048
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534826047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 979161183}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &745121994
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +688,7 @@ RectTransform:
   - {fileID: 391124289}
   - {fileID: 465703691}
   - {fileID: 158594075}
+  - {fileID: 534826048}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5559,7 +5595,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 0.90588236, a: 1}
-  m_Intensity: 0.9
+  m_Intensity: 0.2
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -6647,22 +6683,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 979161183}
     m_Modifications:
-    - target: {fileID: 5948843367228781402, guid: 923e3d03e2dfa4e9abbd6d4538576bc9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5948843367228781402, guid: 923e3d03e2dfa4e9abbd6d4538576bc9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5948843367228781402, guid: 923e3d03e2dfa4e9abbd6d4538576bc9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8946952122361184025, guid: 923e3d03e2dfa4e9abbd6d4538576bc9, type: 3}
       propertyPath: moveTarget
       value: 
       objectReference: {fileID: 1374725443}
+    - target: {fileID: 8946952122361184025, guid: 923e3d03e2dfa4e9abbd6d4538576bc9, type: 3}
+      propertyPath: sceneCenterPoint
+      value: 
+      objectReference: {fileID: 534826048}
     - target: {fileID: 8946952122361184026, guid: 923e3d03e2dfa4e9abbd6d4538576bc9, type: 3}
       propertyPath: m_Name
       value: Bicycle
