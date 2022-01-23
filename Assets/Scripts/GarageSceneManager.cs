@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.UI;
 
 public class GarageSceneManager : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class GarageSceneManager : MonoBehaviour
   public bool IsGarageOpen { get { return isGarageOpen; } }
 
   [SerializeField] List<MemoryObject> memoryObjects;
+
+  int memoriesFound = 0;
+  [SerializeField] GameObject nextLevelBtn;
 
   void Awake()
   {
@@ -51,7 +56,7 @@ public class GarageSceneManager : MonoBehaviour
 
   void InitMemories()
   {
-    foreach(MemoryObject memoryObject in memoryObjects)
+    foreach (MemoryObject memoryObject in memoryObjects)
     {
       memoryObject.ReadyToInteract();
     }
@@ -80,7 +85,7 @@ public class GarageSceneManager : MonoBehaviour
   {
     musicManager.PlayPreTheme();
     musicManager.PlayGarageDoorOpen();
-    float target = garageDoor.transform.position.y + 7;
+    float target = garageDoor.transform.position.y + 9f;
     LeanTween.moveY(garageDoor, target, openGarageDoorTime).setEaseOutBounce().setOnComplete(() => { isGarageOpen = true; });
   }
 
@@ -98,12 +103,26 @@ public class GarageSceneManager : MonoBehaviour
   {
     canInteract = false;
     flashLight.SetActive(turnOffFlash);
+    memoriesFound++;
+    if (memoriesFound == memoryObjects.Count - 1)
+      StartCoroutine(LevelCompleted());
   }
 
   public void OnMemoryPlaced(bool turnOffFlash = true)
   {
     canInteract = true;
     flashLight.SetActive(turnOffFlash);
+  }
+
+  IEnumerator LevelCompleted()
+  {
+    yield return new WaitForSeconds(5);
+    nextLevelBtn.SetActive(true);
+  }
+
+  public void OnNextLevelClicked()
+  {
+
   }
 
   void AnimateRoomLight()

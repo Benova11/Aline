@@ -74,7 +74,7 @@ public class MemoryObject : MonoBehaviour
   {
     LeanTween.move(photoFrame, moveTarget, 3.5f).setEaseInOutSine();
     LeanTween.value(memoryLightComp.intensity, 0.7f, 1f).setDelay(0.5f).setOnUpdate(SetMemoryLightIntensity);
-    LeanTween.scale(photoFrame, new Vector3(0.8f, 0.8f, 0.8f), 1f).setEaseLinear();
+    LeanTween.scale(photoFrame, new Vector3(0.25f, 0.25f, 0.25f), 1f).setEaseLinear();
     ChangeObjectAlpha(mainSpriteRenderer, 2, 0.3f, 0.5f);
   }
 
